@@ -1,0 +1,11 @@
+:host{
+    grid-area: header;
+}
+
+a{
+    color: black;
+}
+
+a.active{
+    color: pink;
+}

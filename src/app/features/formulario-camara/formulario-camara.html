@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <h1>
+      {{ camera() ? 'Editar Camara' : 'Agregar Camara' }}
+    </h1>
+    <label for="modelName">Nombre</label>
+    @if (form.controls.modelName.touched && form.controls.modelName.hasError('required')) {
+      <span>El nombre es requerido</span>
+    }
+    <input id="modelName" type="text" formControlName="modelName" />
+    <label for="cameraType">Tipo de camara</label>
+    <select id="cameraType" formControlName="cameraType">
+      @for (ct of cameraTypes; track ct) {
+        <option [value]="ct">{{ ct }}</option>
+      }
+    </select>
+    @if (form.controls.cameraType.touched && form.controls.cameraType.hasError('required')) {
+      <span>El tipo de camara es requerido</span>
+    }
+    <label for="resolution">Resolucion</label>
+    <input id="resolution" type="text" formControlName="resolution" />
+    @if (form.controls.resolution.touched && form.controls.resolution.hasError('required')) {
+      <span>La resolucion es requerida</span>
+    }
+    <label for="stock">Cantidad en stock</label>
+    <input id="stock" type="number" formControlName="stock" />
+    @if (form.controls.stock.touched && form.controls.stock.hasError('min')) {
+      <span>El stock no puede ser negativo</span>
+    }
+    @if (form.controls.stock.touched && form.controls.stock.hasError('required')) {
+      <span>El necesario fijar una cantidad en stock</span>
+    }
+    <label for="notes">Descripcion</label>
+    <textarea id="notes" formControlName="notes"></textarea>
+    <label for="inOffer">En promocion</label>
+    <input id="inOffer" type="checkbox" formControlName="inOffer" />
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+    <button type="button" (click)="clean()">Borrar</button>
+  </div>
+</form>

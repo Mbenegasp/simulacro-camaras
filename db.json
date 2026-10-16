@@ -1,0 +1,14 @@
+{
+  "trousers": [
+    {
+      "modelName": "Camara PRO 1.5",
+      "cameraType": "Compacta",
+      "resolution": "25.8 Mpx",
+      "stock": 1,
+      "notes": "La mejor camara del mundo",
+      "inOffer": true,
+      "id": "I1kwrOaa22Q"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

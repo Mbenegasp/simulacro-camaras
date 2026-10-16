@@ -1,0 +1,15 @@
+<h1>Nuestras Camaras</h1>
+
+<button type="button">Todas las camaras</button>
+@for (tipoDeCamara of cameraTypes; track tipoDeCamara) {
+    <button type="button">{{ tipoDeCamara }}</button>
+}
+
+<ul>
+    @for (camara of camaras(); track camara) {
+        <li>
+            <span>{{ camara.modelName}} | {{ camara.cameraType}} | {{ camara.resolution}}</span>
+            <button type="button" (click)="verDetalle(camara.id)">ver mas &rarr;</button>
+        </li>
+    }
+</ul>

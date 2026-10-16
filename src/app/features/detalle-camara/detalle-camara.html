@@ -1,0 +1,19 @@
+@if (camara(); as c) {
+    <article>
+        <h1>{{ c.modelName }}</h1>
+        <h3>Descripcion</h3>
+        <p>{{ c.notes }}</p>
+        <h3>Especificaciones;</h3>
+        <p>Tipo: {{ c.cameraType }}</p>
+        <p>Resolucion: {{c.resolution}}</p>
+        <p>Stock disponible: {{ c.stock }}</p>
+        @if (c.inOffer) {
+            <h3>Producto en oferta!</h3>
+        }
+        <button type="button" (click)="toggleEdicion()">Editar</button>
+        <button type="button" [disabled]="isEditing()" (click)="borrarCamara()">Borrar</button>
+    </article>
+    @if (isEditing()) {
+        <app-formulario-camara [camera]="c" (submitted)="guardarCamaraEditada($event)"/>
+    }
+}
